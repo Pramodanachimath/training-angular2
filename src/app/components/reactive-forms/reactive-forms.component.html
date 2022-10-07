@@ -1,0 +1,32 @@
+<form [formGroup]="empForm" (ngSubmit)="onShow">
+    <div>
+        <label for="username">UserName</label>
+        <input type="text" name="username" formControlName="empname">
+    </div>
+
+    <div>
+        <label for="department">Department</label>
+        <input type="text" name="department" formControlName="department">
+    </div>
+    <div>
+        <label for="salary">Salary</label>
+        <input type="text" name="salary" formControlName="salary">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" formControlName="empname">
+    </div>
+
+    <div formGroupName="address">
+        <label for="city">City</label>
+        <input type="text" name="city" formControlName="city">
+    </div>
+    <div>
+        <label for="state">state</label>
+        <input type="text" name="state" formControlName="state">
+    </div>
+    <div>
+        <input type="submit" value="Show" [disabled]="!empForm.valid">
+    </div>
+   
+</form>

@@ -1,0 +1,92 @@
+<h1>Template Forms</h1>
+<form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)" novalidate>
+    <table>
+        <tr>
+            <td>
+                <label for="username">Username</label>
+            </td>
+            <td>
+                <input type="text" name="username" #username="ngModel" 
+                required
+                minlength="2"
+                maxlength="10"
+                [(ngModel)]="user.username"><br>
+            </td>
+        </tr>
+         <tr>
+            <td>
+            <span **ngIf="username.dirty&&username.value.length<=3" [ngClass]="'errortext'">
+                The length should be greater than 3
+            </span>
+            </td>
+         </tr>
+        <tr>
+            <td>
+                <label for="email">Email</label>
+            </td>
+            <td>
+                <input type="email" name="email" 
+                required
+                #email="ngModel" [(ngModel)]="user.email"><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="gender">Gender</label>
+            </td>
+            <td>
+                <input type="radio" name="gender" #gender="ngModel" 
+                required
+                [(ngModel)]="user.gender" value="male">Male
+                <input type="radio" name="gender" #gender="ngModel" [(ngModel)]="user.gender" value="female">Female
+                <br>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="course">Course</label></td>
+            <td>
+                <select name="course" [(ngModel)]="user.course">
+                    <option [ngValue]="course" *ngFor="let course of courses">{{course}}</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr ngModelGroup="address">
+            <td>
+                <label for="city">City</label>
+            </td>
+            <td>
+                <input type="text" name="city" #city="ngModel" 
+                required
+                [(ngModel)]="user.address.city"><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="state">state</label>
+            </td>
+            <td>
+                <input type="text" name="state" #state="ngModel" [(ngModel)]="user.address.state"><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="zipcode">zipcode</label>
+            </td>
+            <td>
+                <input type="text" name="zipcode" #zipcode="ngModel" [(ngModel)]="user.address.zipcode"><br>
+            </td>
+        </tr>
+<tr>
+    <td> <input type="submit" value="Register Now" [disabled]="!registerForm.valid"></td>
+</tr>
+     
+
+    </table>
+</form>
+<!-- {{registerForm.value|json}} -->
+{{registerForm.valid}}

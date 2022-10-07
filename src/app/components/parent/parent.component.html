@@ -1,0 +1,11 @@
+<div [ngStyle]="{'color': 'red'}">
+    Enter Amont<input type="text" [(ngModel)]="num">{{num}} <br>
+
+   <h1> {{parentMsg}}</h1>
+    <h1 #header
+    >Parent</h1>
+</div>
+
+
+
+<app-child [square]="num"></app-child>

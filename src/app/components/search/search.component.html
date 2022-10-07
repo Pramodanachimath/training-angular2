@@ -1,0 +1,11 @@
+<div [ngStyle]="{'text-align':'center'}">
+<label for="propertyName">Enter PropertyName</label>
+<select #propertyName>
+    <option value="purpose">Purpose</option>
+    <option value="term">Term</option>
+    <option value="risk">Risk</option>
+</select>
+<label for="choice">Enter choice</label>
+<input type="text"#choice>
+<button (click)="show(propertyName.value,choice.value)">Show Plans</button>
+</div>

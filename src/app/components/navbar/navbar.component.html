@@ -1,0 +1,11 @@
+<div>
+    <ol>
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/investments">Investments</a></li>
+        <li *ngFor="let type of planTypes">
+          <a routerLink="/investments/{{type}}">{{type}}</a>
+         </li>
+        <li><a routerLink="/contact">Contact</a></li>
+    </ol>
+
+</div>
